@@ -1,0 +1,14 @@
+import agenciaDeViajes.*
+
+describe "Pruebas etapa 1 agencia de viajes" {
+  test "Un pack nacional sin beneficios devuelve el precio base inicial" {
+    const pepe = new Coordinador (cantidadDeViajesRealizados = 1, estaMotivado = true, añosDeExperiencia = 2, rolesDisponibles = guia)
+    const packNacionalUno = new PackNacional(duracionEnDias = 7, precioBase = 500000, beneficiosEspeciales = 0, coordinadorACargo = pepe, provinciaDestino = "Buenos Aires", actividadesIncluidas = "PaseoEnCaballo")
+    assert.equals(500000, packNacionalUno.precioBase())
+    
+  }
+
+  test "un pack nacional con 2 beneficios vigentes includios tiene un precio de " {
+    
+  }
+}
