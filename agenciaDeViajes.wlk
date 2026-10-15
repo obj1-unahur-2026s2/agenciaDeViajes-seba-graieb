@@ -58,8 +58,32 @@ class PackNacional inherits Pack {
         return actividadesIncluidas
     }
 
-    
+    override method esPremium() {
+        return self.duracionEnDias() > 10 and self.coordinadorACargo().esAltamenteCalificado()
+    }
 
+}
+
+class PackProvincial inherits PackNacional {
+
+    const cantidadDeCiudadesAVisitar
+
+    method cantidadDeCiudadesAVisitar() {
+        return cantidadDeCiudadesAVisitar
+    }
+
+    override method esPremium() {
+        return self.actividadesIncluidas().size() >= 4 and cantidadDeCiudadesAVisitar > 5 and self.beneficiosVigentes().size() >= 3
+    }
+
+    override method valorFinalDelPack() {
+        if(self.esPremium()) {
+          return  super() * 1.05
+        }
+        else {
+          return  super()
+        }
+    }
 
 }
 
@@ -83,6 +107,10 @@ class PackInternacional inherits Pack {
 
     override method valorFinalDelPack() {
         return super() * 1.20
+    }
+
+    override method esPremium() {
+        return self.esLugarDeInteres() and self.duracionEnDias() > 20 and self.cantidadDeEscalas() == 0
     }
 
 
